@@ -1,0 +1,29 @@
+/* Header */
+.site-header {
+    padding: 20px 40px;
+}
+
+.site-header_container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.site-logo {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.main-menu {
+    display: flex;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.main-menu a {
+    font-size: 15px;
+}

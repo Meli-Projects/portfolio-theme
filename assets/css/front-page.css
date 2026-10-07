@@ -1,0 +1,256 @@
+/* Hero */
+.hero-section {
+    max-width: 1200px;
+    min-height: 40vh;
+    margin: 0 auto;
+    padding: 80px 40px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.hero-section::before {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 3px;
+    margin-bottom: 24px;
+    background-color: var(--color-primary);
+}
+
+.hero-section h1 {
+    margin: 0 0 24px;
+    max-width: 800px;
+    font-size: 64px;
+    line-height: 1.1;
+    font-weight: 700;
+}
+
+.hero-section h1 span {
+    color: var(--color-accent);
+}
+
+.hero-section p {
+    max-width: 650px;
+    margin: 0 0 32px;
+    font-size: 18px;
+    line-height: 1.6;
+    opacity: 0.8;
+}
+
+.hero-section > a {
+    display: inline-block;
+    padding: 14px 24px;
+    background-color: var(--color-primary);
+    border: 1px solid var(--color-primary);
+    border-radius: 4px;
+    font-weight: 600;
+    transition: 0.3s ease;
+}
+
+.hero-section > a:hover {
+    background-color: transparent;
+    color: var(--color-accent);
+    border-color: var(--color-accent);
+}
+
+/* About */
+.about-section {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 60px;
+    padding-top: 60px;
+    padding-bottom: 60px;
+    border-top: 1px solid var(--color-surface);
+}
+
+.about-section h2 {
+    margin: 0;
+    font-size: 32px;
+}
+
+.about-content {
+    max-width: 700px;
+}
+
+.about-content p {
+    margin: 0;
+    font-size: 18px;
+    line-height: 1.7;
+    opacity: 0.8;
+}
+
+/* Skills */
+.skills-section {
+    padding-top: 60px;
+    padding-bottom: 60px;
+    border-top: 1px solid var(--color-surface);
+}
+
+.skills-section h2 {
+    margin: 0 0 40px;
+    font-size: 32px;
+}
+
+.skills-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30;
+}
+
+.skill-item {
+    padding: 30px;
+    border-top: 1px solid var(--color-surface);
+}
+
+.skill-item h3 {
+    margin: 0 0 16px;
+    font-size: 22px;
+}
+
+.skill-item p {
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.6;
+    opacity: 0.8;
+}
+
+/* Projects */
+.projects-section {
+    padding-top: 60px;
+    padding-bottom: 60px;
+    border-top: 1px solid var(--color-surface);
+}
+
+.projects-section h2 {
+    margin: 0 0 40px;
+    font-size: 32px;
+}
+
+.projects-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 50px 30px;
+}
+
+.project-image {
+    display: block;
+    height: 350px;
+    overflow: hidden;
+}
+
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.project-info {
+    padding-top: 20px;
+}
+
+.project-title {
+    margin: 0 0 12px;
+    font-size: 24px;
+}
+
+.project-link {
+    color: var(--color-accent);
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.project-link:hover {
+    color: var(--color-primary);
+}
+
+/* Education */
+.education-section {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 60px;
+    padding-top: 60px;
+    padding-bottom: 60px;
+    border-top: 1px solid var(--color-surface);
+}
+
+.education-section h2 {
+    margin: 0;
+    font-size: 32px;
+}
+
+.education-content {
+    max-width: 700px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.education-item {
+    display: flex;
+    gap: 40px;
+}
+
+.education-date {
+    margin: 0;
+    color: var(--color-accent);
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.education-item h3 {
+    margin: 0 0 12px;
+    font-size: 22px;
+}
+
+.education-item div p {
+    margin: 0;
+    line-height: 1.6;
+    opacity: 0.8;
+}
+
+/* Contact */
+/* Contact */
+.contact-section {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 60px;
+    padding-top: 60px;
+    padding-bottom: 60px;
+    border-top: 1px solid var(--color-surface);
+}
+
+.contact-section h2 {
+    margin: 0;
+    font-size: 32px;
+}
+
+.contact-content {
+    max-width: 700px;
+}
+
+.contact-content p {
+    margin: 0;
+    font-size: 20px;
+    line-height: 1.7;
+    opacity: 0.8;
+}
+
+.contact-links {
+    display: flex;
+    gap: 30px;
+    margin-top: 30px;
+    justify-content: center;
+}
+
+.contact-links a {
+    color: var(--color-accent);
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.contact-links a:hover {
+    color: var(--color-primary);
+}
