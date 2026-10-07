@@ -117,55 +117,6 @@
     opacity: 0.8;
 }
 
-/* Projects */
-.projects-section {
-    padding-top: 60px;
-    padding-bottom: 60px;
-    border-top: 1px solid var(--color-surface);
-}
-
-.projects-section h2 {
-    margin: 0 0 40px;
-    font-size: 32px;
-}
-
-.projects-list {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 50px 30px;
-}
-
-.project-image {
-    display: block;
-    height: 350px;
-    overflow: hidden;
-}
-
-.project-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.project-info {
-    padding-top: 20px;
-}
-
-.project-title {
-    margin: 0 0 12px;
-    font-size: 24px;
-}
-
-.project-link {
-    color: var(--color-accent);
-    font-size: 16px;
-    font-weight: 600;
-}
-
-.project-link:hover {
-    color: var(--color-primary);
-}
-
 /* Education */
 .education-section {
     display: grid;
@@ -211,7 +162,6 @@
     opacity: 0.8;
 }
 
-/* Contact */
 /* Contact */
 .contact-section {
     display: grid;

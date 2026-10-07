@@ -71,49 +71,26 @@
 
         <?php
 
+        //Retrieves all published projects from the "projet" Custom Post Type.
         $projects = new WP_Query(
             array(
                 'post_type'      => 'projet',
-                'posts_per_page' => -1,
+                'posts_per_page' => -1, //all project
                 'post_status'    => 'publish'
             )
         );
 
+        // Displays each project using the reusable project card template.
         if ($projects->have_posts()) :
 
             while ($projects->have_posts()) :
                 $projects->the_post();
-                ?>
 
-                <article class="project-card">
+                get_template_part('template-parts/project-card');
 
-                    <?php if (has_post_thumbnail()) : ?>
-
-                        <a class="project-image" href="<?php the_permalink(); ?>">
-                            <?php the_post_thumbnail('large'); ?>
-                        </a>
-
-                    <?php endif; ?>
-
-                    <div class="project-info">
-
-                        <h3 class="project-title">
-                            <a href="<?php the_permalink(); ?>">
-                                <?php the_title(); ?>
-                            </a>
-                        </h3>
-
-                        <a class="project-link" href="<?php the_permalink(); ?>">
-                            Voir le projet →
-                        </a>
-
-                    </div>
-
-                </article>
-
-                <?php
             endwhile;
 
+            //Restores the global post data after the custom query.
             wp_reset_postdata();
 
         else :
@@ -121,7 +98,7 @@
 
             <p>Aucun projet disponible pour le moment.</p>
 
-        <?php endif; ?>
+<?php endif; ?>
 
     </div>
 
