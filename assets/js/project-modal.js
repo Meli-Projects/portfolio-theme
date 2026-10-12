@@ -11,11 +11,11 @@ document.addEventListener('DOMContentLoaded', function () {
         if (!openButton || !modal || !closeButton) {
             return;
         }
-
+        // Opens the project modal.
         openButton.addEventListener('click', function () {
             modal.showModal();
         });
-
+        // Closes the project modal with the close button.
         closeButton.addEventListener('click', function () {
             modal.close();
         });

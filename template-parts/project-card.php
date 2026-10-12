@@ -1,14 +1,20 @@
 <?php
 // Retrieves the custom fields used in the project card.
 $technologies = get_field('technologies');
-$context = get_field('contexte');
+$project_type = get_field('type_projet');
+$project_summary = get_field('resume_projet');
+$project_origin = get_field('origine_projet');
 ?>                
               
 <article class="project-card">
 
     <div class="project-frame">
 
-        <p class="project-label">Projet WordPress</p>
+            <?php if ($project_type) : ?>
+                <p class="project-label">
+                    <?php echo esc_html($project_type); ?>
+                </p>
+            <?php endif; ?>
 
             <?php if (has_post_thumbnail()) : ?>
                 <div class="project-image">
@@ -26,6 +32,23 @@ $context = get_field('contexte');
     </div>
 
     <div class="project-info">
+
+        <div class="project-labels">
+
+            <?php if ($project_type) : ?>
+                <p class="project-type">
+                    <?php echo esc_html($project_type); ?>
+                </p>
+            <?php endif; ?>
+
+            <?php if ($project_origin) : ?>
+                <p class="project-origin">
+                    <?php echo esc_html($project_origin); ?>
+                </p>
+            <?php endif; ?>
+
+        </div>
+
         <!-- Project title linking to the single project page. -->
         <h3 class="project-title">
             <a href="<?php the_permalink(); ?>">
@@ -33,24 +56,34 @@ $context = get_field('contexte');
             </a>
         </h3>
 
+        <?php if ($project_summary) : ?>
+
+            <p class="project-summary">
+                <?php echo esc_html($project_summary); ?>
+            </p>
+
+        <?php endif; ?>
+
         <!-- Displays the technologies field only when a value is available. -->
         <?php if ($technologies) : ?>
-            <p class="project-technologies-preview">
-                <?php echo esc_html($technologies); ?>
-            </p>
-        <?php endif; ?>
 
-        <!-- Displays a shortened preview of the project context. -->
-        <?php if ($context) : ?>
-            <p class="project-summary">
-                <?php echo esc_html(wp_trim_words($context, 22, '…')); ?>  <!-- Affiche seulement les 22 premiers mots du contexte puis ajoute … -->
-            </p>
-        <?php endif; ?>
+            <div class="project-technologies_preview">
 
-        <!-- Link to the full project page. -->
-        <a class="project-link" href="<?php the_permalink(); ?>">
-            Voir le projet →
-        </a>
+                <?php
+                $technology_list = explode(',', $technologies);
+
+                foreach ($technology_list as $technology) :
+                ?>
+
+                    <span class="project-technology">
+                        <?php echo esc_html(trim($technology)); ?>
+                    </span>
+
+                <?php endforeach; ?>
+
+            </div>
+
+        <?php endif; ?>
 
     </div>
 <?php get_template_part('template-parts/project-modal'); ?>

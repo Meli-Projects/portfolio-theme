@@ -4,11 +4,14 @@ $context = get_field('contexte');
 $technologies = get_field('technologies');
 $site_link = get_field('lien_site');
 $code_link = get_field('lien_code');
+$project_type = get_field('type_projet');
 ?>
 
-<dialog class="project-modal">
+<dialog class="project-modal" closedby="any">
 
-    <div class="project-modal_content">
+    <div class="project-modal_header">
+
+        <p>Le projet en détail</p>
 
         <!-- Modal close button. -->
         <button
@@ -17,6 +20,16 @@ $code_link = get_field('lien_code');
             aria-label="Fermer">
             ×
         </button>
+</div>
+
+        <div class="project-modal_content">
+
+        <!-- Displays the current project type. -->
+        <?php if ($project_type) : ?>
+            <p class="project-modal_type">
+                <?php echo esc_html($project_type); ?>
+            </p>
+         <?php endif; ?>
 
         <!-- Displays the current project title. -->
         <h2><?php the_title(); ?></h2>

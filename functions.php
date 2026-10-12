@@ -7,6 +7,7 @@ function portfolio_enqueue_styles() {
     wp_enqueue_style('portfolio-footer',get_template_directory_uri() . '/assets/css/footer.css',array('portfolio-style'),'1.0');
     wp_enqueue_style('portfolio-single-page',get_template_directory_uri() . '/assets/css/single-page.css',array('portfolio-style'),'1.0');
     wp_enqueue_style('portfolio-project-card',get_template_directory_uri() . '/assets/css/project-card.css',array('portfolio-style'),'1.0');
+    wp_enqueue_style('portfolio-project-modal',get_template_directory_uri() . '/assets/css/project-modal.css',array('portfolio-style'),'1.0');
 
     wp_enqueue_script('portfolio-project-modal',get_template_directory_uri() . '/assets/js/project-modal.js',array(),'1.0',true);
 
