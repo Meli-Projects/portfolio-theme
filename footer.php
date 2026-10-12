@@ -2,7 +2,7 @@
 
 <footer class="site-footer">
 
-    <div class="site-footer__container">
+    <div class="site-footer_container">
 
         <p>Portfolio - 2026</p>
 
@@ -20,6 +20,9 @@
             </a>
         </div>
 
+            <a class="footer-top" href="#top" aria-label="Retour en haut de la page">
+                <span class="footer-top_icon" aria-hidden="true">↑</span>
+            </a>
     </div>
 
 </footer>

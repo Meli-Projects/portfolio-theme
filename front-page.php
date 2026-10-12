@@ -1,62 +1,157 @@
 <?php get_header(); ?>
 
-
 <!-- Hero -->
 <section class="hero-section">
 
-    <h1>Développeuse <span>WordPress</span></h1>
+    <div class="hero-content">
 
-    <p>Je conçois des sites WordPress modernes, administrables et adaptés aux besoins des utilisateurs.</p>
+        <h1>Développeuse <span>WordPress</span></h1>
 
-    <a href="#projects">Découvrir mes projets</a>
+        <p>Je conçois des sites WordPress modernes, administrables et adaptés aux besoins des utilisateurs.</p>
 
-</section>
+        <a href="#projects">Découvrir mes projets</a>
 
-
-<!-- About -->
-<section id="about" class="section about-section">
-
-    <h2>À propos</h2>
-
-    <div class="about-content">
-        <p>Développeuse WordPress, je conçois et développe des sites web en accordant une attention particulière à leur structure, leur ergonomie et leur facilité d’utilisation. Au cours de ma formation et de mes expériences professionnelles, j’ai travaillé sur différents projets mêlant développement WordPress, intégration, personnalisation de thèmes et gestion de contenus. J’utilise notamment HTML, CSS, PHP et JavaScript, ainsi que l’écosystème WordPress. Mon parcours professionnel m’a également permis de développer des compétences en organisation, gestion de projet et compréhension des besoins utilisateurs, que j’intègre aujourd’hui dans ma façon de concevoir des solutions web.</p>
     </div>
 
+    <div class="hero-visual" aria-hidden="true">
+
+        <div class="hero-visual_frame">
+
+            <p class="hero-visual_label">Développement web</p>
+
+            <div class="hero-visual_symbol">
+                &lt;/&gt;
+            </div>
+
+            <div class="hero-visual_tags">
+                <span>WordPress</span>
+                <span>PHP</span>
+                <span>JavaScript</span>
+            </div>
+
+        </div>
+
+    </div>
 
 </section>
 
+<!-- About -->
+<section id="about" class="about-section">
+
+    <div class="section about-container">
+
+        <div class="about-heading">
+
+            <p class="section-label">Profil</p>
+
+            <h2>À propos</h2>
+
+        </div>
+
+        <div class="about-content">
+
+            <p>
+                Développeuse WordPress, je conçois et développe des sites web en accordant une attention particulière à leur structure, leur ergonomie et leur facilité d’utilisation.
+                <br><br>
+                Au cours de ma formation et de mes expériences professionnelles, j’ai travaillé sur différents projets mêlant développement WordPress, intégration, personnalisation de thèmes et gestion de contenus. J’utilise notamment HTML, CSS, PHP et JavaScript, ainsi que l’écosystème WordPress.
+                <br><br>
+                Mon parcours professionnel m’a également permis de développer des compétences en organisation, gestion de projet et compréhension des besoins utilisateurs, que j’intègre aujourd’hui dans ma façon de concevoir des sites web.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
 
 <!-- Skills -->
 <section id="skills" class="section skills-section">
 
-    <h2>Mes compétences</h2>
+    <div class="skills_header">
+
+        <p class="section-label">Expertise</p>
+
+        <h2>Mes compétences</h2>
+
+        <p class="skills_intro">Des outils techniques au service de projets WordPress, web et e-commerce.</p>
+
+    </div>
 
     <div class="skills-list">
 
         <div class="skill-item">
+
             <h3>WordPress</h3>
-            <p>Développement de thèmes, administration, personnalisation.</p>
+
+            <p>Développement de thèmes personnalisés, administration et gestion de contenus.</p>
+
+            <div class="skill_tags">
+                <span>WordPress</span>
+                <span>PHP</span>
+                <span>SCF</span>
+            </div>
+
         </div>
 
+
         <div class="skill-item">
+
             <h3>Front-end</h3>
-            <p>HTML, CSS et JavaScript.</p>
+
+            <p>Intégration d'interfaces responsives avec HTML, CSS et JavaScript.</p>
+
+            <div class="skill_tags">
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>JavaScript</span>
+            </div>
+
         </div>
 
+
         <div class="skill-item">
+
             <h3>Back-end</h3>
-            <p>PHP et bases de données MySQL.</p>
+
+            <p>Développement PHP et manipulation de bases de données MySQL.</p>
+
+            <div class="skill_tags">
+                <span>PHP</span>
+                <span>MySQL</span>
+            </div>
+
         </div>
 
+
         <div class="skill-item">
+
             <h3>E-commerce</h3>
-            <p>WooCommerce, PrestaShop, intégration et gestion de catalogues produits.</p>
+
+            <p>Intégration et gestion de boutiques et catalogues avec WooCommerce et PrestaShop.</p>
+
+            <div class="skill_tags">
+                <span>WooCommerce</span>
+                <span>PrestaShop</span>
+            </div>
+
         </div>
 
+
         <div class="skill-item">
+
             <h3>Outils & environnement</h3>
-            <p>Git, GitHub, VS Code et XAMPP.</p>
+
+            <p>Versionnement, développement local et gestion du code avec les principaux outils de mon environnement de travail.</p>
+
+            <div class="skill_tags">
+                <span>Git</span>
+                <span>GitHub</span>
+                <span>VS Code</span>
+                <span>XAMPP</span>
+            </div>
+
         </div>
+
     </div>
 
 </section>
@@ -64,6 +159,8 @@
 
 <!-- Projects -->
 <section id="projects" class="section projects-section">
+
+    <p class="section-label">RÉALISATIONS</p>
 
     <h2>Mes projets</h2>
 
@@ -107,7 +204,13 @@
 <!-- Education -->
 <section id="education" class="section education-section">
 
-    <h2>Formation</h2>
+    <div class="education_header">
+
+        <p class="section-label">Parcours</p>
+
+        <h2>Formation</h2>
+
+    </div>
 
     <div class="education-content">
 
@@ -115,10 +218,9 @@
 
             <p class="education-date">2025 - 2026</p>
 
-            <div>
-                <h3>Développeuse WordPress</h3>
-                <p>OpenClassrooms - Formation professionnelle en développement WordPress (formation en cours).</p>
-            </div>
+            <h3>Développeuse WordPress</h3>
+
+            <p>OpenClassrooms - Formation professionnelle en développement WordPress (formation en cours).</p>
 
         </div>
 
@@ -126,10 +228,9 @@
 
             <p class="education-date">2023 - 2024</p>
 
-            <div>
-                <h3>Prépa Mastère Cybersécurité & Data</h3>
-                <p>IPSSI - Formation professionnelle en développement Web, sécurité et data.</p>
-            </div>
+            <h3>Prépa Mastère Cybersécurité & Data</h3>
+
+            <p>IPSSI - Formation professionnelle en développement Web, sécurité et data.</p>
 
         </div>
 
@@ -139,31 +240,42 @@
 
 
 <!-- Contact -->
-<section id="contact" class="section contact-section">
+<section id="contact" class="contact-section">
 
-    <h2>Contact</h2>
+    <div class="section contact-container">
 
-    <div class="contact-content">
+        <div class="contact_header">
 
-        <p>Vous souhaitez échanger autour d'un projet ou d'une opportunité professionnelle ? N'hésitez pas à me contacter.</p>
+            <p class="section-label">Contact</p>
 
-        <div class="contact-links">
+            <h2>Envie d'échanger ?</h2>
 
-            <a href="mailto:melisande.lefils@gmail.com">
-                E-mail ↗
-            </a>
+        </div>
 
-            <a href="https://www.linkedin.com/in/mélisande-lefils-80b48b182"
-               target="_blank"
-               rel="noopener noreferrer">
-                LinkedIn ↗
-            </a>
+        <div class="contact_content">
 
-            <a href="https://github.com/Meli-Projects"
-               target="_blank"
-               rel="noopener noreferrer">
-                GitHub ↗
-            </a>
+            <p>Une question sur un projet, un retour sur mon travail ou simplement envie de discuter web et WordPress ? Vous pouvez me retrouver par e-mail, LinkedIn ou GitHub.</p>
+
+            <div class="contact_links">
+
+                <a class="contact-link_primary"
+                   href="mailto:melisande.lefils@gmail.com">
+                    E-mail ↗
+                </a>
+
+                <a href="https://www.linkedin.com/in/mélisande-lefils-80b48b182"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    LinkedIn ↗
+                </a>
+
+                <a href="https://github.com/Meli-Projects"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    GitHub ↗
+                </a>
+
+            </div>
 
         </div>
 

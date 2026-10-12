@@ -4,7 +4,7 @@
     padding: 25px 40px;
 }
 
-.site-footer__container {
+.site-footer_container {
     max-width: 1200px;
     margin: 0 auto;
     display: flex;
@@ -28,5 +28,26 @@
 }
 
 .footer-links a:hover {
+    color: var(--color-accent);
+}
+
+.footer-top_icon {
+    width: 34px;
+    height: 34px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #334155;
+    border-radius: 8px;
+    background-color: var(--color-surface);
+    color: var(--color-text);
+    font-size: 16px;
+    line-height: 1;
+    transition: transform 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+.footer-top:hover .footer-top_icon {
+    transform: translateY(-2px);
+    border-color: var(--color-accent);
     color: var(--color-accent);
 }
