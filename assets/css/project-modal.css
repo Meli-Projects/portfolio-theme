@@ -1,4 +1,21 @@
 /* Project modal */
+.project-modal {
+    width: 90%;
+    max-width: 1000px;
+    max-height: 90vh;
+    padding: 0;
+    background-color: var(--color-background);
+    color: var(--color-text);
+    border: 1px solid var(--color-primary);
+    border-radius: 16px;
+    overflow-y: auto;
+}
+
+.project-modal::backdrop {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Modal header */
 .project-modal_header {
     position: sticky;
     top: 0;
@@ -17,42 +34,6 @@
     text-transform: uppercase;
 }
 
-.project-modal_type {
-    margin: 0 0 20px;
-    color: var(--color-accent);
-    font-size: 14px;
-    font-weight: 600;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-}
-
-.project-modal {
-    width: 90%;
-    max-width: 1000px;
-    max-height: 90vh;
-    padding: 0;
-    background-color: var(--color-background);
-    color: var(--color-text);
-    border: 1px solid var(--color-primary);
-    border-radius: 16px;
-
-    overflow-y: auto;
-}
-
-.project-modal::backdrop {
-    background-color: rgba(0, 0, 0, 0.8);
-}
-
-.project-modal_content {
-    position: relative;
-    padding: 40px;
-}
-
-.project-modal_content h2 {
-    margin: 0 0 30px;
-    font-size: 42px;
-}
-
 .project-modal_close {
     padding: 12px 18px;
     background-color: transparent;
@@ -67,6 +48,26 @@
     background-color: var(--color-primary);
 }
 
+/* Modal content */
+.project-modal_content {
+    position: relative;
+    padding: 40px;
+}
+
+.project-modal_type {
+    margin: 0 0 20px;
+    color: var(--color-accent);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.project-modal_content h2 {
+    margin: 0 0 30px;
+    font-size: 42px;
+}
+
 .project-modal_image {
     margin-bottom: 40px;
 }
@@ -77,6 +78,7 @@
     display: block;
 }
 
+/* Modal sections */
 .project-modal_section {
     padding: 30px 0;
     border-top: 1px solid var(--color-surface);
@@ -93,6 +95,7 @@
     opacity: 0.8;
 }
 
+/* Modal links */
 .project-modal_links {
     display: flex;
     gap: 30px;

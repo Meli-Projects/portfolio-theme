@@ -1,7 +1,7 @@
 /* Hero */
 .hero-section {
     max-width: 1200px;
-/*    min-height: 70vh;*/
+    min-height: 60vh;
     margin: 0 auto;
     padding: 60px 40px;
     display: grid;
@@ -30,7 +30,7 @@
     font-weight: 700;
 }
 
-.hero-content h1 span {
+.hero-title_accent {
     color: var(--color-accent);
 }
 
@@ -39,23 +39,6 @@
     margin: 0 0 32px;
     font-size: 18px;
     line-height: 1.6;
-    opacity: 0.8;
-}
-
-.hero-content > a {
-    display: inline-block;
-    padding: 14px 24px;
-    background-color: var(--color-primary);
-    border: 1px solid var(--color-primary);
-    border-radius: 4px;
-    font-weight: 600;
-    transition: 0.3s ease;
-}
-
-.hero-content > a:hover {
-    background-color: transparent;
-    color: var(--color-accent);
-    border-color: var(--color-accent);
 }
 
 .hero-visual {
@@ -184,16 +167,10 @@
     background-color: rgba(16, 22, 42, 0.35);
     border: 1px solid #263A63;
     border-radius: 10px;
-    transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .skill-item:last-child {
     grid-column: 1 / -1;
-}
-
-.skill-item:hover {
-    background-color: rgba(16, 22, 42, 0.7);
-    border-color: var(--color-accent);
 }
 
 .skill-item h3 {

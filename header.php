@@ -4,7 +4,6 @@
 <head>
     <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <?php wp_head(); ?>
 </head>
 
@@ -13,27 +12,20 @@
 <?php wp_body_open(); ?>
 
 <header class="site-header">
-
     <div class="site-header_container">
-
         <a class="site-logo" href="<?php echo esc_url(home_url('/')); ?>">Portfolio</a>
 
         <nav class="main-navigation" aria-label="Navigation principale">
-
             <?php
             wp_nav_menu(
                 array(
                     'theme_location' => 'main-menu',
                     'container'      => false,
-                    'menu_class'     => 'main-menu'
+                    'menu_class'     => 'main-menu',
                 )
             );
             ?>
-
         </nav>
-
     </div>
-
 </header>
-
 <main>

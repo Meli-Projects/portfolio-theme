@@ -1,0 +1,351 @@
+/* Elements appear on scroll */
+/* Initial state */
+.reveal {
+    opacity: 0;
+    transform: translateY(70px);
+    transition:
+        opacity 0.9s ease,
+        transform 0.9s ease;
+}
+
+/* Final state */
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Offset between the two columns */
+.about-content.reveal,
+.education-content.reveal,
+.contact_content.reveal {
+    transition-delay: 120ms;
+}
+
+
+/* Hero */
+/* Blue line appears */
+.hero-content::before {
+    transform: scaleX(0);
+    transform-origin: left;
+    animation: heroLineReveal 0.6s ease 0.2s forwards;
+}
+
+@keyframes heroLineReveal {
+    from {
+        transform: scaleX(0);
+    }
+
+    to {
+        transform: scaleX(1);
+    }
+}
+
+/* Title cursor */
+.hero-title_cursor {
+    display: inline-block;
+    width: 2px;
+    height: 0.9em;
+    margin-left: 4px;
+    background-color: var(--color-accent);
+    vertical-align: -0.08em;
+    animation: heroCursorBlink 0.8s step-end infinite;
+}
+
+@keyframes heroCursorBlink {
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
+
+/* Paragraph appears */
+.hero-content > p {
+    opacity: 0;
+    transform: translateY(18px);
+    transition:
+        opacity 0.7s ease,
+        transform 0.7s ease;
+}
+
+.hero-content > p.is-visible {
+    opacity: 0.8;
+    transform: translateY(0);
+}
+
+
+/* Hero card */
+/* Card floating effect */
+.hero-visual {
+    animation: heroFloat 5s ease-in-out 1s infinite;
+}
+
+@keyframes heroFloat {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Prepares the card for its effects*/
+.hero-visual_frame {
+    position: relative;
+    overflow: hidden;
+    transition:
+        transform 0.45s ease,
+        border-color 0.45s ease,
+        box-shadow 0.45s ease;
+}
+
+/* Card content appears */
+@keyframes heroContentReveal {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-visual_label {
+    animation: heroContentReveal 0.7s ease 0.2s both;
+}
+
+.hero-visual_symbol {
+    animation: heroContentReveal 0.7s ease 0.45s both;
+}
+
+/* Technologies appear progressively */
+.hero-visual_tags span {
+    opacity: 0;
+    animation: heroContentReveal 0.6s ease both;
+}
+
+.hero-visual_tags span:nth-child(1) {
+    animation-delay: 0.7s;
+}
+
+.hero-visual_tags span:nth-child(2) {
+    animation-delay: 0.85s;
+}
+
+.hero-visual_tags span:nth-child(3) {
+    animation-delay: 1s;
+}
+
+/* Prepares hover movements */
+.hero-visual_label,
+.hero-visual_symbol,
+.hero-visual_tags {
+    transition:
+        transform 0.4s ease,
+        opacity 0.4s ease;
+}
+
+/* Card hover effects */
+.hero-visual:hover .hero-visual_frame {
+    transform:
+        rotate(0deg)
+        scale(1.02);
+    border-color: var(--color-accent);
+    box-shadow: 0 25px 70px rgba(29, 78, 216, 0.20);
+}
+
+/* Slightly moves the title */
+.hero-visual:hover .hero-visual_label {
+    transform: translateX(5px);
+}
+
+/* Slightly moves the symbol */
+.hero-visual:hover .hero-visual_symbol {
+    transform:
+        translateY(-8px)
+        scale(1.08);
+    opacity: 0.22;
+}
+
+/* light reflection  */
+.hero-visual_frame::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.12),
+        transparent
+    );
+    transform:
+        translateX(-180%)
+        skewX(-15deg);
+    transition: transform 0.8s ease;
+    pointer-events: none;
+}
+
+.hero-visual:hover .hero-visual_frame::after {
+    transform:
+        translateX(350%)
+        skewX(-15deg);
+}
+
+/* Button hidden by default */
+.hero-visual_action {
+    position: absolute;
+    left: 35px;
+    right: 35px;
+    bottom: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 12px 16px;
+    background-color: rgba(29, 78, 216, 0.18);
+    border: 1px solid var(--color-accent);
+    border-radius: 6px;
+    color: var(--color-text);
+    font-size: 14px;
+    font-weight: 600;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease,
+        visibility 0.3s ease,
+        background-color 0.3s ease;
+}
+
+/* Shows the button and hides the technologies. */
+.hero-visual:hover .hero-visual_action,
+.hero-visual_frame:focus-visible .hero-visual_action {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.hero-visual:hover .hero-visual_tags,
+.hero-visual_frame:focus-visible .hero-visual_tags {
+    opacity: 0;
+    transform: translateY(8px);
+}
+
+.hero-visual:hover .hero-visual_action {
+    background-color: rgba(29, 78, 216, 0.35);
+}
+
+/* Skills */
+/* Initial position */
+.skill-item.reveal {
+    opacity: 0;
+    transform:
+        translateY(80px)
+        scale(0.97);
+}
+
+/* Final position */
+.skill-item.reveal.visible {
+    opacity: 1;
+    transform:
+        translateY(0)
+        scale(1);
+}
+
+/* Progressive appearance */
+.skill-item:nth-child(1) {
+    transition-delay: 0ms;
+}
+
+.skill-item:nth-child(2) {
+    transition-delay: 250ms;
+}
+
+.skill-item:nth-child(3) {
+    transition-delay: 500ms;
+}
+
+.skill-item:nth-child(4) {
+    transition-delay: 750ms;
+}
+
+.skill-item:nth-child(5) {
+    transition-delay: 1000ms;
+}
+
+/* Prepares hover effects */
+.skill-item {
+    transition:
+        background-color 0.3s ease,
+        border-color 0.3s ease,
+        transform 0.9s ease,
+        box-shadow 0.3s ease,
+        opacity 0.9s ease;
+}
+
+/* Effect applied on hover */
+.skill-item:hover {
+    background-color: rgba(16, 22, 42, 0.85);
+    border-color: var(--color-accent);
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(29, 78, 216, 0.12);
+    transition-delay: 0ms;
+}
+
+/* Accessibility - reduced animations */
+@media (prefers-reduced-motion: reduce) {
+
+    .reveal,
+    .skill-item.reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+
+    .hero-visual,
+    .hero-visual_label,
+    .hero-visual_symbol,
+    .hero-visual_tags span {
+        animation: none;
+    }
+
+    .hero-visual_tags span {
+        opacity: 1;
+        transform: none;
+    }
+
+    .skill-item,
+    .hero-visual_frame,
+    .hero-visual_frame::after,
+    .hero-visual_label,
+    .hero-visual_symbol,
+    .hero-visual_tags,
+    .hero-visual_action {
+        transition: none;
+    }
+
+    .hero-content::before {
+        transform: scaleX(1);
+        animation: none;
+    }
+
+    .hero-title_cursor {
+        display: none;
+    }
+
+    .hero-content > p {
+        opacity: 0.8;
+        transform: none;
+        transition: none;
+    }
+}

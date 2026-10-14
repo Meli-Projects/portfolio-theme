@@ -1,7 +1,5 @@
 <?php
-/**
- * Template principal du thème Portfolio.
- */
+/*Template principal du thème Portfolio.*/
 ?>
 <?php get_header(); ?>
 

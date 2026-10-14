@@ -18,6 +18,8 @@
     opacity: 0.8;
 }
 
+
+/* Link */
 .footer-links {
     display: flex;
     gap: 25px;
@@ -31,6 +33,7 @@
     color: var(--color-accent);
 }
 
+/* Back to top icon */
 .footer-top_icon {
     width: 34px;
     height: 34px;
@@ -43,7 +46,10 @@
     color: var(--color-text);
     font-size: 16px;
     line-height: 1;
-    transition: transform 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        color 0.3s ease;
 }
 
 .footer-top:hover .footer-top_icon {
