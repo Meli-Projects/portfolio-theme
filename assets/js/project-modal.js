@@ -1,24 +1,28 @@
 document.addEventListener('DOMContentLoaded', function () {
 
-    const projectCards = document.querySelectorAll('.project-card');
+    document.addEventListener('click', function (event) {
 
-    projectCards.forEach(function (card) {
-        const openButton = card.querySelector('.project-discover');
-        const modal = card.querySelector('.project-modal');
-        const closeButton = card.querySelector('.project-modal_close');
-
-        if (!openButton || !modal || !closeButton) {
-            return;
-        }
         // Opens the project modal.
-        openButton.addEventListener('click', function () {
-            modal.showModal();
-        });
-        // Closes the project modal with the close button.
-        closeButton.addEventListener('click', function () {
-            modal.close();
-        });
+        const openButton = event.target.closest('.project-discover');
 
+        if (openButton) {
+            const projectCard = openButton.closest('.project-card');
+            const modal = projectCard.querySelector('.project-modal');
+
+            if (modal) {
+                modal.showModal();
+            }
+        }
+
+        // Closes the project modal.
+        const closeButton = event.target.closest('.project-modal_close');
+
+        if (closeButton) {
+            const modal = closeButton.closest('.project-modal');
+
+            if (modal) {
+                modal.close();
+            }
+        }
     });
-
 });

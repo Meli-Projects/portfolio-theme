@@ -115,9 +115,68 @@
     <p class="section-label">Réalisations</p>
     <h2>Mes projets</h2>
 
+    <div class="projects-filters">
+
+        <!-- Site type filter -->
+        <div class="custom-select" id="type-site" data-placeholder="TYPE DE SITE" data-value="">
+            <div class="select">
+                <span class="select-text">TYPE DE SITE</span>
+            </div>
+
+            <ul class="options-list">
+                <li class="reset-option" data-value="">Tous</li>
+
+                <?php
+                $site_types = get_terms([
+                    'taxonomy'   => 'type_site',
+                    'hide_empty' => true,
+                ]);
+
+                if (!empty($site_types) && !is_wp_error($site_types)) :
+                    foreach ($site_types as $site_type) :
+                ?>
+                    <li data-value="<?php echo esc_attr($site_type->slug); ?>">
+                        <?php echo esc_html($site_type->name); ?>
+                    </li>
+                <?php
+                    endforeach;
+                endif;
+                ?>
+            </ul>
+        </div>
+
+        <!-- Origin filter -->
+        <div class="custom-select" id="origine" data-placeholder="ORIGINE DU PROJET" data-value="">
+            <div class="select">
+                <span class="select-text">ORIGINE DU PROJET</span>
+            </div>
+
+            <ul class="options-list">
+                <li class="reset-option" data-value="">Tous</li>
+
+                <?php
+                $origins = get_terms([
+                    'taxonomy'   => 'origine',
+                    'hide_empty' => true,
+                ]);
+
+                if (!empty($origins) && !is_wp_error($origins)) :
+                    foreach ($origins as $origin) :
+                ?>
+                    <li data-value="<?php echo esc_attr($origin->slug); ?>">
+                        <?php echo esc_html($origin->name); ?>
+                    </li>
+                <?php
+                    endforeach;
+                endif;
+                ?>
+            </ul>
+        </div>
+    </div>
+
     <div class="projects-list">
         <?php
-        // Retrieves all published projects from the "projet" Custom Post Type.
+        // Retrieves the first six published projects from the "projet" Custom Post Type
         $projects = new WP_Query(
             array(
                 'post_type'      => 'projet',
@@ -126,7 +185,7 @@
             )
         );
 
-        // Displays each project using the reusable project card template.
+        // Displays each project using the reusable project card template
         if ($projects->have_posts()) :
             while ($projects->have_posts()) :
                 $projects->the_post();
@@ -134,13 +193,24 @@
                 get_template_part('template-parts/project-card');
             endwhile;
 
-            // Restores the global post data after the custom query.
+            // Restores the global post data after the custom query
             wp_reset_postdata();
         else :
             ?>
             <p>Aucun projet disponible pour le moment.</p>
         <?php endif; ?>
     </div>
+
+    <?php if ($projects->max_num_pages > 1):?>
+        <button
+            class="load-more-projects"
+            type="button"
+            data-page="1"
+            data-max-pages="<?php echo esc_attr($projects->max_num_pages);?>"
+        >    
+            Charger plus
+        </button>
+    <?php endif; ?>
 </section>
 
 <!-- Education -->

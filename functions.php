@@ -12,10 +12,73 @@ function portfolio_enqueue_styles() {
 
     wp_enqueue_script('portfolio-project-modal', get_template_directory_uri() . '/assets/js/project-modal.js', array(), '1.0', true);
     wp_enqueue_script('portfolio-animations', get_template_directory_uri() . '/assets/js/animations.js', array(), '1.0', true);
+    wp_enqueue_script('portfolio-projects', get_template_directory_uri() . '/assets/js/projects.js', array(), '1.0', true);
+    wp_localize_script('portfolio-projects','portfolioData', array('ajaxUrl' => admin_url('admin-ajax.php'),'nonce'   => wp_create_nonce('portfolio_load_projects'),));
 }
 
 add_action('wp_enqueue_scripts', 'portfolio_enqueue_styles');
 
+//loads more projects with ajax
+function load_more_projects() {
+    // verifies the ajax nonce
+    check_ajax_referer('portfolio_load_projects', 'nonce');
+
+    $page = isset($_POST['page'])
+        ? absint($_POST['page'])
+        : 1;
+
+    $site_type = isset($_POST['type_site'])
+    ? sanitize_text_field($_POST['type_site'])
+    : '';
+
+    $origin = isset($_POST['origine'])
+    ? sanitize_text_field($_POST['origine'])
+    : '';    
+
+    $args = array(
+        'post_type'     => 'projet',
+        'posts_per_page' => 6,
+        'paged'          => $page,
+        'post_status'   => 'publish'
+    );
+
+    $tax_query = array();
+    if ($site_type) {
+        $tax_query[] = array(
+            'taxonomy' => 'type_site',
+            'field'    => 'slug',
+            'terms'    => $site_type,
+        );
+    }
+
+    if ($origin) {
+        $tax_query[] = array(
+            'taxonomy' => 'origine',
+            'field'    => 'slug',
+            'terms'    => $origin,
+        );
+    }
+
+    if (!empty($tax_query)) {
+        $args['tax_query'] = $tax_query;
+    }
+
+    $projects = new WP_Query($args);
+
+    // displays the project cards
+    if ($projects->have_posts()) {
+        while ($projects->have_posts()) {
+            $projects->the_post();
+            get_template_part ('template-parts/project-card');
+        }
+        wp_reset_postdata();
+    }
+    
+    wp_die();
+}
+
+add_action('wp_ajax_load_more_projects', 'load_more_projects');
+add_action('wp_ajax_nopriv_load_more_projects', 'load_more_projects');
 
 // Creation of the Project Custom Post Type.
 function portfolio_register_project_post_type() {
