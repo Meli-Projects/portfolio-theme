@@ -121,7 +121,7 @@
         $projects = new WP_Query(
             array(
                 'post_type'      => 'projet',
-                'posts_per_page' => -1,
+                'posts_per_page' => 6,
                 'post_status'    => 'publish',
             )
         );

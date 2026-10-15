@@ -1,15 +1,17 @@
 <?php
-// Retrieves the custom fields used in the project card.
+// Retrieves the custom fields used in the project card
 $technologies = get_field('technologies');
-$project_type = get_field('type_projet');
 $project_summary = get_field('resume_projet');
-$project_origin = get_field('origine_projet');
+$card_title = get_field('titre_carte');
+// Retrieves the taxonomies associated with the project
+$site_types = get_the_terms(get_the_ID(), 'type_site');
+$origins = get_the_terms(get_the_ID(), 'origine');
 ?>
 
 <article class="project-card">
     <div class="project-frame">
-        <?php if ($project_type) : ?>
-            <p class="project-label"><?php echo esc_html($project_type); ?></p>
+        <?php if ($card_title) : ?>
+            <p class="project-label"><?php echo esc_html($card_title); ?></p>
         <?php endif; ?>
 
         <?php if (has_post_thumbnail()) : ?>
@@ -22,12 +24,12 @@ $project_origin = get_field('origine_projet');
 
     <div class="project-info">
         <div class="project-labels">
-            <?php if ($project_type) : ?>
-                <p class="project-type"><?php echo esc_html($project_type); ?></p>
+            <?php if ($site_types && !is_wp_error($site_types)) : ?>
+                <p class="project-type"><?php echo esc_html($site_types[0]->name); ?></p>
             <?php endif; ?>
 
-            <?php if ($project_origin) : ?>
-                <p class="project-origin"><?php echo esc_html($project_origin); ?></p>
+            <?php if ($origins && !is_wp_error($origins)) : ?>
+                <p class="project-origin"><?php echo esc_html($origins[0]->name); ?></p>
             <?php endif; ?>
         </div>
 

@@ -4,7 +4,7 @@ $context = get_field('contexte');
 $technologies = get_field('technologies');
 $site_link = get_field('lien_site');
 $code_link = get_field('lien_code');
-$project_type = get_field('type_projet');
+$card_title = get_field('titre_carte');
 ?>
 
 <dialog class="project-modal" closedby="any">
@@ -15,8 +15,8 @@ $project_type = get_field('type_projet');
 
     <div class="project-modal_content">
         <!-- Displays the current project type. -->
-        <?php if ($project_type) : ?>
-            <p class="project-modal_type"><?php echo esc_html($project_type); ?></p>
+        <?php if ($card_title) : ?>
+            <p class="project-modal_type"><?php echo esc_html($card_title); ?></p>
         <?php endif; ?>
 
         <!-- Displays the current project title. -->
