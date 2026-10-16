@@ -65,16 +65,26 @@ function load_more_projects() {
 
     $projects = new WP_Query($args);
 
-    // displays the project cards
+    // Retrieves the project cards HTML.
+    ob_start();
+
     if ($projects->have_posts()) {
         while ($projects->have_posts()) {
             $projects->the_post();
-            get_template_part ('template-parts/project-card');
+
+            get_template_part('template-parts/project-card');
         }
+
         wp_reset_postdata();
     }
-    
-    wp_die();
+
+    $html = ob_get_clean();
+
+    // Sends the projects and the number of pages to JavaScript.
+    wp_send_json_success([
+        'html'      => $html,
+        'max_pages' => $projects->max_num_pages,
+    ]);
 }
 
 add_action('wp_ajax_load_more_projects', 'load_more_projects');

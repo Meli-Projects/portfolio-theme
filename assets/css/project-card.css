@@ -228,3 +228,23 @@
     color: var(--color-text);
     font-size: 14px;
 }
+
+/* Load more button */
+.load-more-projects {
+    display: block;
+    min-width: 180px;
+    margin: 45px auto 0;
+    padding: 14px 24px;
+    background: var(--color-surface);
+    border: 1px solid #263A63;
+    border-radius: 8px;
+    color: var(--color-text);
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.load-more-projects:hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+}

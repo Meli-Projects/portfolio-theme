@@ -7,31 +7,48 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
     /* ---- AJAX project loading ---- */
-    function loadProjects(page = 1, isAppend = false) {
+function loadProjects(page = 1, isAppend = false) {
 
-        const data = {
-            action: 'load_more_projects',
-            nonce: portfolioData.nonce,
-            page: page,
-            type_site: siteTypeFilter?.dataset.value || '',
-            origine: originFilter?.dataset.value || ''
-        };
+    const data = {
+        action: 'load_more_projects',
+        nonce: portfolioData.nonce,
+        page: page,
+        type_site: siteTypeFilter?.dataset.value || '',
+        origine: originFilter?.dataset.value || ''
+    };
 
-        fetch(portfolioData.ajaxUrl, {
-            method: 'POST',
-            body: new URLSearchParams(data)
-        })
-            .then((response) => response.text())
-            .then((result) => {
+    fetch(portfolioData.ajaxUrl, {
+        method: 'POST',
+        body: new URLSearchParams(data)
+    })
+        .then((response) => response.json())
+        .then((result) => {
 
-                if (isAppend) {
-                    projectsList.insertAdjacentHTML('beforeend', result);
+            if (!result.success) {
+                return;
+            }
+
+            const html = result.data.html;
+            const maxPages = parseInt(result.data.max_pages);
+
+            if (isAppend) {
+                projectsList.insertAdjacentHTML('beforeend', html);
+            } else {
+                projectsList.innerHTML = html;
+            }
+
+            if (loadMoreButton) {
+                loadMoreButton.dataset.page = page;
+                loadMoreButton.dataset.maxPages = maxPages;
+
+                if (page >= maxPages) {
+                    loadMoreButton.style.display = 'none';
                 } else {
-                    projectsList.innerHTML = result;
+                    loadMoreButton.style.display = '';
                 }
-            });
-    }
-
+            }
+        });
+}
 
     /* ---- Load more button ---- */
     if (loadMoreButton) {
@@ -39,17 +56,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
             const currentPage = parseInt(loadMoreButton.dataset.page);
             const nextPage = currentPage + 1;
-            const maxPages = parseInt(loadMoreButton.dataset.maxPages);
 
             loadProjects(nextPage, true);
-            loadMoreButton.dataset.page = nextPage;
-
-            if (nextPage >= maxPages) {
-                loadMoreButton.style.display = 'none';
-            }
         });
     }
-
 
     /* ---- Custom filters ---- */
     const customSelects = document.querySelectorAll('.custom-select');
@@ -85,10 +95,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 customSelect.dataset.value = option.dataset.value;
 
                 loadProjects();
-
-                if (loadMoreButton) {
-                    loadMoreButton.dataset.page = 1;
-                }
 
                 customSelect.classList.remove('open');
             });
