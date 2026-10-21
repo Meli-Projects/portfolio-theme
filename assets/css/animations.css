@@ -21,7 +21,6 @@
     transition-delay: 120ms;
 }
 
-
 /* Hero */
 /* Blue line appears */
 .hero-content::before {
@@ -47,8 +46,7 @@
     height: 0.9em;
     margin-left: 4px;
     background-color: var(--color-accent);
-    vertical-align: -0.08em;
-    animation: heroCursorBlink 0.8s step-end infinite;
+    animation: heroCursorBlink 1s step-end infinite;
 }
 
 @keyframes heroCursorBlink {
@@ -220,11 +218,7 @@
     opacity: 0;
     visibility: hidden;
     transform: translateY(10px);
-    transition:
-        opacity 0.3s ease,
-        transform 0.3s ease,
-        visibility 0.3s ease,
-        background-color 0.3s ease;
+
 }
 
 /* Shows the button and hides the technologies. */

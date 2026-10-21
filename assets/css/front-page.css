@@ -130,6 +130,7 @@
     font-size: 18px;
     line-height: 1.7;
     opacity: 0.8;
+    text-align: justify;
 }
 
 /* Skills */
@@ -331,4 +332,111 @@
 
 .contact_links .contact-link_primary:hover {
     background-color: transparent;
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+    /*hero*/
+    .hero-section {
+        padding: 50px 30px;
+        grid-template-columns: 1fr 280px;
+        gap: 30px;
+    }
+
+    .hero-content {
+        min-width: 0;
+    }
+
+    .hero-content h1 {
+        font-size: 52px;
+    }
+
+    .hero-visual_frame {
+        max-width: 280px;
+        min-height: 320px;
+        padding: 28px;
+    }
+
+    /*contact*/
+    .contact_header h2 {
+        font-size: 38px;
+    }
+
+    .contact_content > p {
+    text-align: justify;
+    line-height: 1.5;
+    }
+}
+
+@media (max-width: 640px) {
+    
+    .hero-section,
+    .about-container,
+    .skills-section,
+    .projects-section,
+    .education-section,
+    .contact-container {
+        padding: 50px 25px;
+    }
+
+    /* Hero */
+    .hero-section {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .hero-content {
+        max-width: 100%;
+        min-width: 0;
+    }
+
+    .hero-content h1 {
+        font-size: 44px;
+    }
+
+    .hero-visual {
+        justify-content: center;
+    }
+
+    .hero-visual_frame {
+        width: 100%;
+        max-width: 320px;
+    }
+
+
+    /* About */
+    .about-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+       
+    }
+
+
+    /* Skills */
+    .skills-list {
+        grid-template-columns: 1fr;
+    }
+  
+
+    /* Education */
+    .education-section {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+
+    /* Contact */
+    .contact_header h2{
+        font-size: 35px;
+    }
+    .contact-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .contact_links {
+        justify-content: center;
+        font-size: 18px;
+    }
+
 }

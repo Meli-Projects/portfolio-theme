@@ -15,7 +15,19 @@
     <div class="site-header_container">
         <a class="site-logo" href="<?php echo esc_url(home_url('/')); ?>">Portfolio</a>
 
-        <nav class="main-navigation" aria-label="Navigation principale">
+        <button
+            class="menu-toggle"
+            type="button"
+            aria-label="Ouvrir le menu"
+            aria-expanded="false"
+            aria-controls="main-navigation"
+        >
+            <span class="menu-toggle_line"></span>
+            <span class="menu-toggle_line"></span>
+            <span class="menu-toggle_line"></span>
+        </button>
+
+        <nav id="main-navigation" class="main-navigation" aria-label="Navigation principale">
             <?php
             wp_nav_menu(
                 array(

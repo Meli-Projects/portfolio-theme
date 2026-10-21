@@ -133,3 +133,39 @@
 .project-modal::-webkit-scrollbar-button {
     display: none;
 }
+
+@media (max-width: 640px) {
+
+    .project-modal_header {
+        padding: 20px 25px;
+        gap: 20px;
+    }
+
+    .project-modal_header p {
+        font-size: 16px;
+    }
+
+    .project-modal_close {
+        width: 40px;
+        height: 40px;
+        padding: 0;
+        flex-shrink: 0;
+    }
+
+    .project-modal_section p {
+        text-align: justify;
+    }
+
+    .project-modal_links {
+        padding-top: 0;
+    }
+
+    .project-modal_type {
+        margin: 0 0 15px;
+    }
+
+    .project-modal_content h2 {
+        margin: 0 0 15px;
+        font-size: 35px;
+    }
+}

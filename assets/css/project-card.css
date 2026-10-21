@@ -248,3 +248,54 @@
     border-color: var(--color-accent);
     color: var(--color-accent);
 }
+
+/* Tablet */
+@media (max-width: 768px) {
+    /*filters*/
+    .projects-filters {
+        justify-content: center;
+    }
+    
+    /*project*/
+    .projects-list{
+    gap: 20px 30px;
+    }
+
+    .project-label {
+        min-height: 40px;
+    }
+
+    .project-image {
+        height: 260px;
+    }
+    
+    .project-labels{
+        display: block;
+        line-height: 1.55;
+    }
+    
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+
+    /* Filters */
+    .projects-filters {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .custom-select {
+        width: 100%;
+    }
+
+    /* Projects */
+    .projects-list {
+        grid-template-columns: 1fr;
+    }
+
+    .project-card {
+        min-width: 0;
+    }
+
+}

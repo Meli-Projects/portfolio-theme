@@ -1,5 +1,6 @@
 /* Header */
 .site-header {
+    position: relative;
     padding: 20px 40px;
 }
 
@@ -12,7 +13,7 @@
 }
 
 .site-logo {
-    font-size: 20px;
+    font-size: 25px;
     font-weight: 700;
 }
 
@@ -52,4 +53,56 @@
 .main-menu a:hover::after,
 .main-menu a:focus-visible::after {
     transform: scaleX(1);
+}
+
+/* Mobile menu button */
+.menu-toggle {
+    display: none;
+}
+
+/*responsive
+/* Mobile */
+@media (max-width: 640px) {
+
+    .site-header {
+        padding: 20px;
+    }
+
+    .menu-toggle {
+        width: 35px;
+        height: 25px;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        background: none;
+        border: none;
+        cursor: pointer;
+    }
+
+    .menu-toggle_line {
+        width: 100%;
+        height: 2px;
+        background: var(--color-text);
+    }
+
+    .main-navigation {
+        display: none;
+    }
+
+    .main-navigation.open {
+        display: block;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        padding: 25px 20px;
+        background: var(--color-surface);
+        z-index: 100;
+    }
+
+    .main-menu {
+        flex-direction: column;
+        gap: 20px;
+    }
 }

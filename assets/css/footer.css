@@ -18,7 +18,6 @@
     opacity: 0.8;
 }
 
-
 /* Link */
 .footer-links {
     display: flex;
@@ -44,16 +43,18 @@
     border-radius: 8px;
     background-color: var(--color-surface);
     color: var(--color-text);
-    font-size: 16px;
-    line-height: 1;
-    transition:
-        transform 0.3s ease,
-        border-color 0.3s ease,
-        color 0.3s ease;
 }
 
 .footer-top:hover .footer-top_icon {
     transform: translateY(-2px);
     border-color: var(--color-accent);
     color: var(--color-accent);
+}
+
+/*responsive*/
+@media (max-width: 640px){
+.site-footer {
+    padding: 25px 15px;
+}
+
 }
